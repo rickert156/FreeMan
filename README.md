@@ -6,3 +6,6 @@
 ```sh
 python3 Hunter.py
 ```
+# LICENSE
+Этот проект распространяется под лицензией [GNU GPLv3](./LICENSE).
+Подробнее: <https://www.gnu.org/licenses/gpl-3.0.html>.
