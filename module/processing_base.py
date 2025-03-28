@@ -1,5 +1,6 @@
-from SinCity.colors import GREEN, RESET
+from SinCity.colors import GREEN, RESET, RED
 from module.Recording import recordingResult
+import csv
 
 counter_number = 0
 
@@ -64,8 +65,34 @@ def ProcessingTXT(base:str):
             f'Номеров Беларусии: {len(number_by)}'
             )
 
-def ProcessingCSV():
-    pass
+def ProcessingCSV(base:str):
+    global number_ru, number_by, number_uk
+    global counter_number
+    with open(base, 'r') as file:
+        for info in file.readlines():
+            all_data = info.split()
+            if ':' in info:all_data = info.split(':')
+            if '|' in info:all_data = info.split('|')
+            phone = None
+            for data in all_data:
+                string_csv = data.split(',') 
+                for data in string_csv:
+
+                    if '\n' in data:data = data.split('\n')[0]
+
+                    if '+' in data:data = data.split('+')[1]
+                 
+                    phone = CheckPhone(data=data)
+                    if phone != None:
+                        counter_number+=1
+                        print(f'[{counter_number}] {base}\t{phone}')
+
+    print(
+            f'Номеров РФ: {len(number_ru)}\n'
+            f'Номеров Украины: {len(number_uk)}\n'
+            f'Номеров Беларусии: {len(number_by)}'
+            )
 
 def ProcessingBase(base:str):
     if '.txt' in base:ProcessingTXT(base=base)
+    if '.csv' in base:ProcessingCSV(base=base)
