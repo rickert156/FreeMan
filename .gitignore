@@ -2,6 +2,7 @@ __pycache__/*
 */__pycache__/
 Archive/*
 Base/*
+Result/*
 *.csv
 *.txt
 *.zip

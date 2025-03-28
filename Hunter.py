@@ -9,16 +9,17 @@ import os, shutil
 def DataHunter():
     print(f'{RED}Data Hunter: {version}{RESET}')
     dir_base = StartProject()
+    if dir_base:
+    
+        all_base, base_txt, base_csv = CheckBase()
+        input(f'\n{GREEN}click enter...{RESET}')
+        for base in all_base:
+            print(f'Processing base: {base}...')
+            ProcessingBase(base=base)
+            input('...')
 
-    all_base, base_txt, base_csv = CheckBase()
-    input(f'\n{GREEN}click enter...{RESET}')
-    for base in all_base:
-        print(f'Processing base: {base}...')
-        ProcessingBase(base=base)
-        input('...')
-
-        file = base.split('/')[1]
-        shutil.move(base, f'{archive_base}/{file}')
+            file = base.split('/')[1]
+            shutil.move(base, f'{archive_base}/{file}')
 
 try: 
     DataHunter()
