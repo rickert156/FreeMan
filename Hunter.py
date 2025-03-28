@@ -12,11 +12,11 @@ def DataHunter():
     if dir_base:
     
         all_base, base_txt, base_csv = CheckBase()
-        input(f'\n{GREEN}click enter...{RESET}')
+        #input(f'\n{GREEN}click enter...{RESET}')
         for base in all_base:
             print(f'Processing base: {base}...')
             ProcessingBase(base=base)
-            input('...')
+            #input('...')
 
             file = base.split('/')[1]
             shutil.move(base, f'{archive_base}/{file}')
