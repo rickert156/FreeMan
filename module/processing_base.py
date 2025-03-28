@@ -94,5 +94,10 @@ def ProcessingCSV(base:str):
             )
 
 def ProcessingBase(base:str):
-    if '.txt' in base:ProcessingTXT(base=base)
-    if '.csv' in base:ProcessingCSV(base=base)
+    try:
+        if '.txt' in base:ProcessingTXT(base=base)
+        if '.csv' in base:ProcessingCSV(base=base)
+    except UnicodeDecodeError:print(
+            f'{RED}Поменяй кодировку, ублюдок!{RESET}\n'
+            f'{RED}Для слепых показываю файл: "{base}"{RESET}'
+            )
