@@ -7,7 +7,7 @@ import os, shutil
 
 
 def DataHunter():
-    print(f'{RED}Data Hunter: {version}{RESET}')
+    #print(f'{RED}Data Hunter: {version}{RESET}')
     dir_base = StartProject()
     if dir_base:
     
@@ -21,6 +21,8 @@ def DataHunter():
             file = base.split('/')[1]
             shutil.move(base, f'{archive_base}/{file}')
 
-try: 
-    DataHunter()
-except KeyboardInterrupt:print(f'{RED}\nExit...{RESET}')
+#while True:
+#    try: 
+#        DataHunter()
+#    except KeyboardInterrupt:print(f'{RED}\nExit...{RESET}')
+DataHunter()

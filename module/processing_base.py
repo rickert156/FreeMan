@@ -52,7 +52,7 @@ def ProcessingTXT(base:str):
                 if '\n' in data:data = data.split('\n')[0]
 
                 if '+' in data:data = data.split('+')[1]
-                 
+                data = data.strip()
                 phone = CheckPhone(data=data)
                 if phone != None:
                     counter_number+=1
@@ -81,6 +81,7 @@ def ProcessingCSV(base:str):
                     if '\n' in data:data = data.split('\n')[0]
 
                     if '+' in data:data = data.split('+')[1]
+                    data = data.strip()
                  
                     phone = CheckPhone(data=data)
                     if phone != None:
